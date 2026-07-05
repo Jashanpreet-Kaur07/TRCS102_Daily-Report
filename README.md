@@ -13,13 +13,13 @@ When we write:
 x = 42
 ```
 Python does three things:
-*Makes the number object  
+1. Makes the number object:
 Python first creates an object in memory that holds the value 42. Think of it like writing “42” on a sticky note and putting it somewhere in memory.
 
-*Creates the name (variable)  
+2. Creates the name (variable): 
 Then it creates the name x. This is just a label, like writing “x” on another sticky note.
 
-*Links the name to the object  
+3. Links the name to the object: 
 Finally, Python sticks the “x” label onto the sticky note that already has “42”. Now whenever you say x, Python looks at the label and finds the object 42.
 
 We can also inspect the memory address using the `id()` function, and check the type of the object using `type()`.
@@ -46,4 +46,9 @@ Data Type of x: <class 'int'>
 Data Type of x: {type(x)}
 Memory address of x (id): 140726367440632
 ```
+
+
+
+
+
 
