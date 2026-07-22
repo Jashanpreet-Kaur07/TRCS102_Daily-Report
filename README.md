@@ -57,6 +57,78 @@ x = "Hello"
 print(type(x))   # Output: <class 'str'>
 
 # Built-in Datatypes
+## 1. Numeric Types 
+
+| Type     | Description                          | Example   |
+|----------|--------------------------------------|-----------|
+| `int`    | Whole numbers (positive/negative)    | `42`, `-7` |
+| `float`  | Decimal numbers, scientific notation | `3.14`, `1.5e3` |
+| `complex`| Numbers with real + imaginary parts  | `2+3j` |
+
+### Key Notes
+- `int` → Unlimited size in Python.  
+- `float` → Supports decimals and scientific notation.  
+- `complex` → Access real part with `.real` and imaginary part with `.imag`.  
+
+## 2. String Type 
+
+| Type   | Description                  | Example             |
+|--------|------------------------------|---------------------|
+| `str`  | Sequence of Unicode characters | `"Hello"`, `'Python'` |
+
+### Key Notes
+- Strings are **immutable** (cannot be changed after creation).  
+- Can be defined using single quotes `'...'`, double quotes `"..."`, or triple quotes `'''...'''` for multi-line text.  
+- Support indexing and slicing:  
+  ```python
+  text = "Python"
+  print(text[0])    # P
+  print(text[1:4])  # yth
+
+## 3. Boolean & None Types 
+
+| Type      | Description                  | Example   |
+|-----------|------------------------------|-----------|
+| `bool`    | Logical values (True/False)  | `True`, `False` |
+| `NoneType`| Represents "no value" or null| `None` |
+
+### Key Notes
+- **Boolean (`bool`)**
+  - Used in conditional statements and logical operations.
+  - Result of comparisons:  
+    ```python
+    print(5 > 3)   # True
+    print(2 == 4)  # False
+    ```
+  - Can be combined with logical operators: `and`, `or`, `not`.
+
+- **None (`NoneType`)**
+  - Special constant representing the absence of a value.
+  - Often used as a default return value or placeholder.
+  - Example:  
+    ```python
+    def greet():
+        print("Hello")
+        # No return → returns None by default
+
+    result = greet()
+    print(result)  # None
+    ```
+
+## Mutability vs. Immutability
+
+- **Mutable types** → Can change after creation.  
+  Examples: `list`, `dict`, `set`
+  ```
+  nums = [1, 2, 3]
+  nums.append(4)   # [1, 2, 3, 4]
+
+- **Immutable types** → Cannot change once created. Any update makes a new object.
+Examples: `int`, `float`, `str`, `tuple`, `frozenset`, `bool`, `NoneType`
+```
+text = "hello"
+new_text = text.upper()
+# text stays "hello", new_text is "HELLO"
 
 
 
