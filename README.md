@@ -224,6 +224,81 @@ Rest of the Operators are listed below:
 - **`print()`** → Displays output to the console.
 
 **2. Creating:**
+
 i) Defining & Calling a simple function.
+
 ii) Parameters & Arguments
-  * 
+  - Parameters - The variable listed in the function definition.
+    Ex.- username
+  - Arguments - The actual value sent to the function when it is called.
+    Ex.- "Aman"
+
+iii) Return function.
+
+**Q:** Write your ATM Simulator.
+```
+#ATM simulator
+balance=10000                                
+while True:
+    print("Welcome to ATM simulator")
+    print("Choose an option:")
+    print("1.Check your balance")
+    print("2.Deposit money")
+    print("3.Withdraw money")
+    print("4.Exit")
+    choice=int(input("Enter your choice:"))
+    if choice==1:
+        print("Balance = ",balance)
+        break
+    elif choice==2:
+        amt=int(input("Enter your amount to deposit:"))
+        balance+=amt
+        print("Balance after deposit:",balance)
+        break
+    elif choice==3:
+        amt=int(input("Enter your amount to withdraw:"))
+        balance-=amt
+        print("Balance after withdraw:",balance)
+        break
+    elif choice==4:
+        print("Exit...")
+        break
+    else:
+        print("Invalid option.")
+        break
+```
+Output:
+```
+Welcome to ATM simulator
+Choose an option:
+1.Check your balance
+2.Deposit money
+3.Withdraw money
+4.Exit
+Enter your choice:1
+Balance =  10000
+```
+
+**Q:** Checking for Prime Numbers.
+
+```
+#Prime Numbers
+n=2
+def is_prime(n):
+    for i in range(2,int(n**0.5)+1):
+        if n%1==0:
+            print("Not Prime")
+            break
+    else:
+        print("Prime")
+
+is_prime(n)
+```
+Output:
+```
+Prime
+```
+
+
+
+
