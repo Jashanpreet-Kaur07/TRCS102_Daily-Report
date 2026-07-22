@@ -4,7 +4,7 @@
 
 I am Jashanpreet kaur from department of Computer Science Engineering.Today is my first day of training as a student of third year. On the first day of the training, we learned about Python basics such as variables and data types.
 
-** 1. Variables: Pointers to Memory **
+# Variables: Pointers to Memory
 In many programming languages (like C or Java), a variable is seen as a **labeled box** that holds a value. 
 In Python, however, a variable is a **nametag (reference)** attached to an **object** in memory.
 
@@ -47,7 +47,16 @@ Data Type of x: {type(x)}
 Memory address of x (id): 140726367440632
 ```
 
+**Dynamic Typing**
+Dynamic typing means that variables don’t have fixed types. Their type is determined at runtime based on the value assigned.
+Example:
+x = 42
+print(type(x))   # Output: <class 'int'>
 
+x = "Hello"
+print(type(x))   # Output: <class 'str'>
+
+# Built-in Datatypes
 
 
 
