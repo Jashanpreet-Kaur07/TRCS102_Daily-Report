@@ -376,20 +376,214 @@ Output:
 - **List** → Ordered, mutable collection. Allows duplicates.  
   Example: `[1, 2, 3]`
 
-- **Tuple** → Ordered, immutable collection. Allows duplicates.  
+
+
+# DAY - 5
+
+- **Tuples** → Ordered, immutable collection. Allows duplicates.(Unpacking)
   Example: `(1, 2, 3)`
 
+**example of unpacking and splitting**
+ ```
+d_splits=(([1,2,3],[4,5,6]),     # train: (x,y)
+    ([1,2],[7,8]),               # val: (x,y)
+    ([1],[0]))                   # test: (x,y)
+train,val,test=d_splits
+x_train,y_train=train
+print(len(x_train))
+```
+Output:
+```
+3
+```
 - **Dictionary** → Key‑value pairs, unordered, mutable. Keys must be unique.  
   Example: `{"name": "Alice", "age": 20}`
 
 - **Set** → Unordered collection of unique elements and it is mutable.  
   Example: `{1, 2, 3}`
 
+**Q:** Intersection & Difference
+```
+# intersection
+print("Intersection:",train_classes & val_classes)
+print(train_classes.intersection(val_classes))
+
+# difference
+print("Difference:",train_classes - val_classes)
+print(train_classes.difference(val_classes))
+```
+Output:
+```
+Intersection: {'dog'}
+{'dog'}
+Difference: {'bird', 'cat'}
+{'bird', 'cat'}
+```
+
+**Q:** Temperature Filter Set
+```
+temp=[28,32,18,15,30,22,17]
+cold_days=[]
+hot_days=[]
+for i in temp:
+    if i<20:
+        cold_days.append(i)
+    else:
+        hot_days.append(i)
+print(cold_days)
+print(hot_days)
+```
+Output:
+```
+[18, 15, 17]
+[28, 32, 30, 22]
+```
 
 
 
+# DAY - 6
 
+### NumPy Fundamentals (Array Creation)
 
+- **`np.zeros(shape)`** → Creates an array filled with 0's.  
+- **`np.ones(shape)`** → Creates an array filled with 1's.  
+- **`np.arange(start,stop,step)`** → It does not include stop value. 
+- **`np.linspace(start,stop,num)`** → It includes stop value.(num-how many values you want to generate).
+- **`np.eye(shape)`** → Creates an identity matrix of the given shape.
+
+## 📊 NumPy Array Attributes
+
+- **`.ndim`** → Number of dimensions (axes).  
+- **`.shape`** → Tuple showing size of each dimension.  
+- **`.size`** → Total number of elements.  
+- **`.dtype`** → Data type of elements.  
+- **`.itemsize`** → Size (in bytes) of each element.  
+- **`.nbytes`** → Total bytes consumed by elements.  
+
+**Example**
+```
+import numpy as np
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+
+print(arr.ndim)    # 2
+print(arr.shape)   # (2, 3)
+print(arr.size)    # 6
+print(arr.dtype)   # int64 (depends on system)
+```
+
+### Indexing in Array
+```
+arr=np.array([1,2,3,4])
+arr[-2]=500
+print(arr)               
+print(arr[0])
+print(arr[2])
+```
+Output:
+```
+[  1   2 500   4]
+1
+500
+```
+
+### Boolean Indexing
+```
+data=np.array([5,12,3,6,8,90,20])
+print(data>12)          # prints 'true' on value >12
+data[data>12]           # prints index of elements greater than 12
+hot_days=data[data>12]  # prints the same o/p in hot and cold days ex
+data[data<12]=12        # it makes the ele <12 = to 12
+print(data)
+```
+Output:
+```
+[False False False False False  True  True]
+[12 12 12 12 12 90 20]
+```
+
+### Boolean Masking & np.where
+```
+salaries=np.array([23000,-45000,50000,-82000,30000])
+fixed=np.where(salaries<0,10000,salaries)
+print(fixed)
+```
+Output:
+```
+[23000 10000 50000 10000 30000]
+```
+
+### Mean & Median 
+```
+x=np.array([10,30,20,40,10])
+print(np.mean(x))
+print(np.median(x))
+print(np.std(x))
+```
+Output:
+```
+22.0
+20.0
+11.661903789690601
+```
+
+### Mean & Median of 2D Array
+```
+x=np.array([
+    [10.0,200.0],
+    [30.0,100.0],
+    [20.0,400.0]
+])
+col_means=np.mean(x,axis=0)
+row_means=np.mean(x,axis=1)
+print("Column wise mean:",col_means)
+print("Row wise mean:",row_means)
+```
+Output:
+```
+Column wise mean: [ 20.         233.33333333]
+Row wise mean: [105.  65. 210.]
+```
+
+### Reshaping 
+Reshaping means moving from 1d to 2d array.
+```
+flat_array=np.arange(6)
+print("Original 1D array:",flat_array)
+matrix_2d=flat_arr.reshape(2,3)
+print(matrix_2d)
+```
+Output:
+```
+Original 1D array: [0 1 2 3 4 5]
+[[0 1 2]
+ [3 4 5]]
+```
+
+### Flatten the 2D Array back to 1D
+```
+flattened=matrix_2d.flatten()
+print(flattened)
+print("Flattened array back to 1d:",flattened)
+```
+Output:
+```
+[0 1 2 3 4 5]
+Flattened array back to 1d: [0 1 2 3 4 5]
+```
+
+### Dot Product
+```
+inputs=np.array([1.0,2.0])
+weights=np.array([
+    [0.2,0.8,-0.5],
+    [0.5,-0.1,0.4]
+])
+print(np.dot(inputs,weights))
+```
+Output:
+```
+[1.2 0.6 0.3]
+```
 
 
 
