@@ -301,4 +301,107 @@ Prime
 
 
 
+# DAY - 4
+
+### Types of Arguments 
+
+- **Positional Arguments** → Values passed in order, matched by position.  
+- **Default Arguments** → Parameters with default values if not provided.  
+- **Keyword Arguments** → Values passed by explicitly naming the parameter.  
+
+### Variable-Length Arguments 
+
+- **`*args`** → Allows passing multiple positional arguments as a tuple.  
+- **`**kwargs`** → Allows passing multiple keyword arguments as a dictionary.  
+
+**Example**
+```
+def demo(*args, **kwargs):
+    print(args)          # (1, 2, 3)
+    print(kwargs)        # {'a': 10, 'b': 20}
+
+demo(1, 2, 3, a=10, b=20)
+```
+
+### Variable Scope 
+
+- **Local Variable** → Declared inside a function, accessible only within that function.  
+- **Global Variable** → Declared outside all functions, accessible throughout the program.  
+
+**Example**
+```
+x = 10      # Global
+
+def demo():
+    y = 5   # Local
+    print(y)
+
+demo()
+print(x)
+```
+
+### Recursive Functions 
+
+- **Definition** → A function that calls itself to solve a problem.  
+- **Use Case** → Breaking problems into smaller sub-problems (e.g., factorial, Fibonacci).  
+- **Base Case** → Stops recursion to avoid infinite loop.  
+
+**Example**
+```
+def factorial(n):
+    if n == 0:         # base case
+        return 1
+    else:
+        return n * factorial(n-1)
+
+print(factorial(5))   # 120
+```
+
+**Q:** Fibonacci Series.
+```
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n-1) + fib(n-2)
+
+print([fib(i) for i in range(7)])
+```
+Output:
+```
+[0, 1, 1, 2, 3, 5, 8]
+```
+
+### Data Structures 
+
+- **List** → Ordered, mutable collection. Allows duplicates.  
+  Example: `[1, 2, 3]`
+
+- **Tuple** → Ordered, immutable collection. Allows duplicates.  
+  Example: `(1, 2, 3)`
+
+- **Dictionary** → Key‑value pairs, unordered, mutable. Keys must be unique.  
+  Example: `{"name": "Alice", "age": 20}`
+
+- **Set** → Unordered collection of unique elements and it is mutable.  
+  Example: `{1, 2, 3}`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
