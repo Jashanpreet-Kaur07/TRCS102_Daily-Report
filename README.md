@@ -183,7 +183,27 @@ Used to perform operations on binary numbers.
 Examples: `&` (AND), `|` (OR), `^` (XOR), `~` (NOT), `<<` (left shift), `>>` (right shift)
 
 
+# DAY - 2
+Rest of the Operators are listed below:
 
+### 6. Membership Operators
+- **`in`** → Returns `True` if a value exists in a sequence (list, tuple, string, etc.).
+- **`not in`** → Returns `True` if a value does not exist in a sequence.
+
+### 7. Identity Operators
+- **`is`** → Returns `True` if two variables point to the same object in memory.
+- **`is not`** → Returns `True` if two variables point to different objects.
+
+# Loops 
+
+### Types of Loops
+- **`for` loop** → Iterates over a sequence (list, tuple, string, etc.).  
+- **`while` loop** → Runs as long as a condition is `True`.
+
+### Loop Control
+- **`break`** → Exit the loop early.  
+- **`continue`** → Skip to the next iteration.  
+- **`pass`** → Do nothing (placeholder).
 
 
 
