@@ -122,6 +122,7 @@ print(type(x))   # Output: <class 'str'>
   ```
   nums = [1, 2, 3]
   nums.append(4)   # [1, 2, 3, 4]
+  ```
 
 - **Immutable types** → Cannot change once created. Any update makes a new object.
 Examples: `int`, `float`, `str`, `tuple`, `frozenset`, `bool`, `NoneType`
@@ -129,6 +130,38 @@ Examples: `int`, `float`, `str`, `tuple`, `frozenset`, `bool`, `NoneType`
 text = "hello"
 new_text = text.upper()
 # text stays "hello", new_text is "HELLO"
+```
+
+# Type Casting (Data Type Conversion)
+
+Type casting means converting one data type into another.
+
+### Built-in Functions
+- `int()` → converts to integer  
+- `float()` → converts to float  
+- `str()` → converts to string  
+- `bool()` → converts to boolean  
+- `complex()` → converts to complex number  
+
+### Examples
+```
+x = "42"
+print(int(x))    # 42 (string → int)
+
+y = 3
+print(float(y))  # 3.0 (int → float)
+
+z = 0
+print(bool(z))   # False (int → bool)
+
+num = 5
+print(str(num))  # "5" (int → string)
+```
+
+
+
+
+
 
 
 
