@@ -451,7 +451,7 @@ Output:
 - **`np.linspace(start,stop,num)`** → It includes stop value.(num-how many values you want to generate).
 - **`np.eye(shape)`** → Creates an identity matrix of the given shape.
 
-## 📊 NumPy Array Attributes
+### NumPy Array Attributes
 
 - **`.ndim`** → Number of dimensions (axes).  
 - **`.shape`** → Tuple showing size of each dimension.  
