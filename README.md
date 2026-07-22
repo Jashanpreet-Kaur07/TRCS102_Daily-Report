@@ -158,6 +158,29 @@ num = 5
 print(str(num))  # "5" (int → string)
 ```
 
+# Operators 
+
+Python provides different types of operators to perform operations on values and variables.
+
+### 1. Arithmetic Operators
+Used for mathematical calculations.  
+Examples: `+`, `-`, `*`, `/`, `%`, `**` (power), `//` (floor division)
+
+### 2. Comparison Operators
+Used to compare values, return `True` or `False`.  
+Examples: `==`, `!=`, `>`, `<`, `>=`, `<=`
+
+### 3. Logical Operators
+Used to combine conditional statements.  
+Examples: `and`, `or`, `not`
+
+### 4. Assignment Operators
+Used to assign values to variables.  
+Examples: `=`, `+=`, `-=`, `*=`, `/=`, `%=`, `**=`, `//=`
+
+### 5. Bitwise Operators
+Used to perform operations on binary numbers.  
+Examples: `&` (AND), `|` (OR), `^` (XOR), `~` (NOT), `<<` (left shift), `>>` (right shift)
 
 
 
