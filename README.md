@@ -585,9 +585,357 @@ Output:
 [1.2 0.6 0.3]
 ```
 
+### 1D Array & 2D Array
+
+- **1D Array** → Single row/line of elements.  
+  Example:
+
+  ```
+  import numpy as np
+  arr1 = np.array([1, 2, 3, 4])
+  print(arr1.ndim)       # 1
+  print(arr1.shape)      # (4,)
+  ```
+
+
+- **2D Array** → Matrix with rows and columns.
+Example:
+
+```
+arr2 = np.array([[1, 2, 3], [4, 5, 6]])
+print(arr2.ndim)        # 2
+print(arr2.shape)       # (2, 3)
+```
 
 
 
+# DAY - 7
+
+### Pandas
+There are two types of data structure:
+
+* Series
+* Data Frames (data in table format) - It is used to make CSV file.
+
+### Mean & Median in Pandas
+
+- **`mean()`** → Returns the average of values in a Series/DataFrame.  
+- **`median()`** → Returns the middle value of values in a Series/DataFrame.  
+
+Example (Series):
+```
+import pandas as pd
+data = pd.Series([10, 20, 30, 40, 50])
+print(data.mean())    # 30.0
+print(data.median())  # 30.0
+```
+
+Example (DataFrame):
+```
+df = pd.DataFrame({
+    "A": [1, 2, 3],
+    "B": [4, 5, 6]
+})
+
+print(df.mean())       # Column-wise mean
+print(df.median())     # Column-wise median
+```
+
+
+
+# DAY - 8
+
+### Data Visualization
+
+- **Matplotlib** → Low-level plotting library.  
+  - `plt.plot()` → Line plots  
+  - `plt.bar()` → Bar charts  
+  - `plt.hist()` → Histograms  
+  - `plt.scatter()` → Scatter plots  
+
+- **Seaborn** → High-level interface built on Matplotlib.  
+  - `sns.histplot()` → Histogram with KDE  
+  - `sns.boxplot()` → Box plots  
+  - `sns.heatmap()` → Correlation heatmaps  
+  - `sns.scatterplot()` → Scatter plots with style  
+
+- **Pandas Integration** → Quick plots from DataFrames.  
+  - `df.plot(kind="line")`  
+  - `df.plot(kind="bar")`  
+  - `df.plot(kind="hist")`  
+
+**Example**
+```
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+
+df = pd.DataFrame({"A":[1,2,3,4], "B":[4,3,2,1]})
+
+# Line plot with Matplotlib
+plt.plot(df["A"], df["B"])
+plt.title("Line Plot")
+plt.show()
+
+# Scatter plot with Seaborn
+sns.scatterplot(x="A", y="B", data=df)
+plt.show()
+```
+
+
+
+# DAY - 9
+
+### Countplot in Seaborn
+A bar plot showing the count of observations in each category.  
+- **Function** → `sns.countplot()`  
+
+**Example**
+```
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = ["A", "B", "A", "C", "B", "A"]
+
+sns.countplot(x=data)
+plt.title("Count of Categories")
+plt.show()
+```
+
+### Exploratory Data Analysis (EDA)
+ Process of analyzing datasets to summarize main characteristics.  
+- **Goal** → Understand data distribution, detect patterns, spot anomalies, and prepare for modeling.  
+
+**Common Steps**
+- **Data Inspection** → `df.head()`, `df.info()`, `df.describe()`  
+- **Missing Values** → `df.isnull().sum()`  
+- **Data Types** → `df.dtypes`  
+- **Summary Stats** → Mean, Median, Mode, Std, Var  
+- **Correlation** → `df.corr()`  
+- **Visualization** → Histograms, Boxplots, Countplots, Heatmaps  
+
+**Example**
+```
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("data.csv")
+
+print(df.head())        # first rows
+print(df.describe())    # summary stats
+print(df.isnull().sum())# missing values
+
+sns.heatmap(df.corr(), annot=True)
+plt.show()
+```
+
+
+
+# DAY - 10
+
+### Interquartile Range (IQR)
+ Measure of statistical spread, difference between 75th percentile (Q3) and 25th percentile (Q1).  
+- **Formula** → `IQR = Q3 - Q1`  
+- **Use** → Detecting outliers and understanding data variability.  
+
+**Example**
+```
+import pandas as pd
+
+data = pd.Series([7, 8, 5, 6, 3, 4, 9, 12, 15])
+
+Q1 = data.quantile(0.25)
+Q3 = data.quantile(0.75)
+IQR = Q3 - Q1
+
+print("Q1:", Q1)   # 5.0
+print("Q3:", Q3)   # 9.0
+print("IQR:", IQR) # 4.0
+```
+
+
+
+# DAY - 11
+
+### Linear Regression 
+ A statistical method to model the relationship between a dependent variable (y) and one/more independent variables (x).  
+- **Goal** → Find the best‑fit line that minimizes error.  
+- **Library** → `sklearn.linear_model.LinearRegression`
+
+**Example**
+```
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+# Sample dataset
+df = pd.DataFrame({
+    "Size": [1000, 1500, 2000, 2500],
+    "Price": [200000, 250000, 300000, 350000]
+})
+
+X = df[["Size"]]   # independent variable
+y = df["Price"]    # dependent variable
+
+# Train/test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Prediction
+y_pred = model.predict(X_test)
+print("Predicted:", y_pred)
+```
+
+### Multiple Linear Regression 
+ A statistical method to model the relationship between one dependent variable (y) and multiple independent variables (x1, x2, …).  
+- **Goal** → Find the best‑fit plane/hyperplane that minimizes error.  
+- **Library** → `sklearn.linear_model.LinearRegression`
+
+**Example**
+```
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+# Sample dataset
+df = pd.DataFrame({
+    "Size": [1000, 1500, 2000, 2500],
+    "Rooms": [2, 3, 3, 4],
+    "Price": [200000, 250000, 300000, 350000]
+})
+
+X = df[["Size", "Rooms"]]  # independent variables
+y = df["Price"]            # dependent variable
+
+# Train/test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Prediction
+y_pred = model.predict(X_test)
+print("Predicted:", y_pred)
+
+# Coefficients & intercept
+print("Coefficients:", model.coef_)
+print("Intercept:", model.intercept_)
+```
+
+### Polynomial Regression 
+ A regression technique where the relationship between independent (x) and dependent (y) variables is modeled as an nth‑degree polynomial.  
+- **Goal** → Capture non‑linear patterns in data.  
+- **Library** → `sklearn.preprocessing.PolynomialFeatures` + `LinearRegression`
+
+**Example**
+```
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
+
+# Sample dataset
+X = np.array([1, 2, 3, 4, 5]).reshape(-1, 1)
+y = np.array([1, 4, 9, 16, 25])  # quadratic relation
+
+# Transform features into polynomial (degree=2)
+poly = PolynomialFeatures(degree=2)
+X_poly = poly.fit_transform(X)
+
+# Train model
+model = LinearRegression()
+model.fit(X_poly, y)
+
+# Prediction
+y_pred = model.predict(X_poly)
+
+# Plot
+plt.scatter(X, y, color="blue")
+plt.plot(X, y_pred, color="red")
+plt.title("Polynomial Regression (degree=2)")
+plt.show()
+```
+
+
+
+# DAY - 12
+
+### Ridge & Lasso Regression 
+
+- **Ridge Regression** → Linear regression with L2 regularization (penalizes large coefficients).  
+- **Lasso Regression** → Linear regression with L1 regularization (can shrink some coefficients to 0 → feature selection).  
+- **Goal** → Prevent overfitting, improve generalization.  
+- **Library** → `sklearn.linear_model.Ridge`, `sklearn.linear_model.Lasso`
+
+**Example**
+```
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import Ridge, Lasso
+
+# Sample dataset
+df = pd.DataFrame({
+    "Size": [1000, 1500, 2000, 2500],
+    "Rooms": [2, 3, 3, 4],
+    "Price": [200000, 250000, 300000, 350000]
+})
+
+X = df[["Size", "Rooms"]]
+y = df["Price"]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Ridge Regression
+ridge = Ridge(alpha=1.0)
+ridge.fit(X_train, y_train)
+print("Ridge Coefficients:", ridge.coef_)
+
+# Lasso Regression
+lasso = Lasso(alpha=0.1)
+lasso.fit(X_train, y_train)
+print("Lasso Coefficients:", lasso.coef_)
+```
+
+### Logistic Regression 
+ A classification algorithm that models the probability of a binary outcome (0/1, True/False).  
+- **Goal** → Estimate probability using the logistic (sigmoid) function.  
+- **Library** → `sklearn.linear_model.LogisticRegression`
+
+**Example**
+```
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+
+# Sample dataset
+df = pd.DataFrame({
+    "Hours_Studied": [2, 4, 6, 8, 10],
+    "Passed": [0, 0, 1, 1, 1]  # binary outcome
+})
+
+X = df[["Hours_Studied"]]   # independent variable
+y = df["Passed"]            # dependent variable (0/1)
+
+# Train/test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train model
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+# Prediction
+y_pred = model.predict(X_test)
+print("Predicted:", y_pred)
+
+# Probability estimates
+print("Probabilities:", model.predict_proba(X_test))
+```
 
 
 
