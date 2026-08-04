@@ -939,8 +939,82 @@ print("Probabilities:", model.predict_proba(X_test))
 
 
 
+# DAY - 13
+
+### Classification
+
+**What is classification?**
+A supervised learning technique used to predict categorical outcomes (labels).
+
+**Types of Classification:**
+* Binary Classification: The target variable has only two possible values.
+Example: Email is spam(1) or not spam(0)
+         Passenger Survived (1) or Did not Survived (0)
+
+* Multiclass Classification: The target variable has three or more possible values.
+Example: Predict weather (Sunny, Rainy, Cloudy, Snowy)
+         Predict Passenger Class (1st class, 2nd class, 3rd class)
+  
+**Common Algorithms used:** 
+  - Logistic Regression → Binary classification.  
+  - Decision Trees → Rule-based splits.  
+  - Random Forest → Ensemble of decision trees.  
+  - K-Nearest Neighbors (KNN) → Classifies based on nearest data points.  
+  - Support Vector Machine (SVM) → Finds optimal separating boundary.  
+  - Naive Bayes → Probabilistic classifier based on Bayes’ theorem.  
+
+**Example (Logistic Regression)**
+```
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+
+# Sample dataset
+df = pd.DataFrame({
+    "Hours_Studied": [2, 4, 6, 8, 10],
+    "Passed": [0, 0, 1, 1, 1]  # binary outcome
+})
+
+X = df[["Hours_Studied"]]
+y = df["Passed"]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+print("Predicted:", model.predict(X_test))
+```
 
 
+
+# DAY - 14
+
+### Clustering 
+ An unsupervised learning technique that groups data points into clusters based on similarity.  
+- **Goal** → Discover hidden patterns or natural groupings in data.  
+- **Types of Clustering** →  
+  - **K‑Means** → Partitions data into K clusters.  
+  - **Hierarchical** → Builds nested clusters (tree/dendrogram).  
+  - **DBSCAN** → Groups based on density, handles noise/outliers.  
+
+**Example (K‑Means)**
+```
+import pandas as pd
+from sklearn.cluster import KMeans
+
+# Sample dataset
+df = pd.DataFrame({
+    "X": [1, 2, 3, 8, 9, 10],
+    "Y": [1, 2, 3, 8, 9, 10]
+})
+
+# KMeans clustering
+kmeans = KMeans(n_clusters=2, random_state=42)
+df["Cluster"] = kmeans.fit_predict(df[["X", "Y"]])
+
+print(df)
+```
 
 
 
