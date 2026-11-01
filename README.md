@@ -905,6 +905,9 @@ lasso.fit(X_train, y_train)
 print("Lasso Coefficients:", lasso.coef_)
 ```
 
+
+
+# DAY - 14
 ### Logistic Regression 
  A classification algorithm that models the probability of a binary outcome (0/1, True/False).  
 - **Goal** → Estimate probability using the logistic (sigmoid) function.  
@@ -942,7 +945,7 @@ print("Probabilities:", model.predict_proba(X_test))
 
 
 
-# DAY - 13
+# DAY - 15
 
 ### Classification
 
