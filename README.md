@@ -443,6 +443,41 @@ Output:
 
 # DAY - 6
 
+### NumPy Operations 
+NumPy provides powerful operations that make it essential for AI/ML tasks such as data preprocessing, matrix computations, and statistical analysis.
+
+- **Arithmetic (Element-wise)**  
+  Perform math directly on arrays: `+`, `-`, `*`, `/`, `**`  
+  *Example: scaling input features.*
+
+- **Aggregate Functions**  
+  Summarize data: `np.sum()`, `np.mean()`, `np.max()`, `np.min()`  
+  *Example: computing average loss or accuracy.*
+
+- **Statistical**  
+  Analyze distributions: `np.std()`, `np.var()`, `np.median()`  
+  *Example: measuring variance in dataset features.*
+
+- **Linear Algebra**  
+  Matrix operations: `np.dot()`, `np.matmul()`, `np.linalg.inv()`, `np.linalg.eig()`  
+  *Example: weight updates in neural networks.*
+
+- **Array Manipulation**  
+  Reshape and transform: `reshape()`, `transpose()`, `concatenate()`, `split()`  
+  *Example: reshaping input data for ML models.*
+
+- **Broadcasting**  
+  Automatic expansion of arrays with different shapes.  
+  *Example: adding bias terms to all rows of a dataset.*
+
+- **Logical Operations**  
+  Boolean checks: `np.logical_and()`, `np.logical_or()`, comparisons (`>`, `<`, `==`)  
+  *Example: filtering data points based on conditions.*
+
+
+
+# DAY - 7
+
 ### NumPy Fundamentals (Array Creation)
 
 - **`np.zeros(shape)`** → Creates an array filled with 0's.  
@@ -609,7 +644,7 @@ print(arr2.shape)       # (2, 3)
 
 
 
-# DAY - 7
+# DAY - 8
 
 ### Pandas
 There are two types of data structure:
@@ -643,7 +678,7 @@ print(df.median())     # Column-wise median
 
 
 
-# DAY - 8
+# DAY - 9
 
 ### Data Visualization
 
@@ -684,7 +719,7 @@ plt.show()
 
 
 
-# DAY - 9
+# DAY - 10
 
 ### Countplot in Seaborn
 A bar plot showing the count of observations in each category.  
@@ -732,7 +767,7 @@ plt.show()
 
 
 
-# DAY - 10
+# DAY - 11
 
 ### Interquartile Range (IQR)
  Measure of statistical spread, difference between 75th percentile (Q3) and 25th percentile (Q1).  
@@ -756,7 +791,7 @@ print("IQR:", IQR) # 4.0
 
 
 
-# DAY - 11
+# DAY - 12
 
 ### Linear Regression 
  A statistical method to model the relationship between a dependent variable (y) and one/more independent variables (x).  
@@ -829,7 +864,7 @@ print("Intercept:", model.intercept_)
 
 
 
-# DAY - 12  
+# DAY - 13 
 ### Polynomial Regression 
  A regression technique where the relationship between independent (x) and dependent (y) variables is modeled as an nth‑degree polynomial.  
 - **Goal** → Capture non‑linear patterns in data.  
@@ -867,7 +902,7 @@ plt.show()
 
 
 
-# DAY - 13
+# DAY - 14
 
 ### Ridge & Lasso Regression 
 
@@ -907,7 +942,8 @@ print("Lasso Coefficients:", lasso.coef_)
 
 
 
-# DAY - 14
+# DAY - 15
+
 ### Logistic Regression 
  A classification algorithm that models the probability of a binary outcome (0/1, True/False).  
 - **Goal** → Estimate probability using the logistic (sigmoid) function.  
@@ -945,7 +981,25 @@ print("Probabilities:", model.predict_proba(X_test))
 
 
 
-# DAY - 15
+# DAY - 16
+
+### Decision Trees & Random Forests
+
+**Decision Trees**
+A decision tree is basically like a flowchart. At each step, the model asks a question about the data (for example: *“Is age > 30?”*). Based on the answer, it moves left or right until it reaches a final decision.  
+They’re easy to understand and explain, but if the tree grows too deep it can start memorizing the data (overfitting).
+
+**Random Forests**
+A random forest is just a collection of many decision trees working together. Each tree is trained on a random slice of the data and features. When it’s time to predict, all the trees vote, and the forest takes the majority answer (or averages them for regression).  
+This makes the model more accurate and stable compared to a single tree, though it’s harder to interpret and takes more computing power.
+
+**Why They’re Useful in AI/ML**
+- Decision trees are good when you want something simple and interpretable.  
+- Random forests are better when you care about performance and robustness, like in fraud detection, medical diagnosis, or recommendation systems.
+
+
+
+# DAY - 17
 
 ### Classification
 
@@ -994,7 +1048,7 @@ print("Predicted:", model.predict(X_test))
 
 
 
-# DAY - 14
+# DAY - 18
 
 ### Clustering 
  An unsupervised learning technique that groups data points into clusters based on similarity.  
@@ -1021,6 +1075,15 @@ df["Cluster"] = kmeans.fit_predict(df[["X", "Y"]])
 
 print(df)
 ```
+
+
+
+# DAY - 19
+
+We did a project named - Customer Segmentation for Retail Marketing-Mall Customers. It is a sample project.
+
+
+
 
 
 
