@@ -827,6 +827,9 @@ print("Coefficients:", model.coef_)
 print("Intercept:", model.intercept_)
 ```
 
+
+
+# DAY - 12  
 ### Polynomial Regression 
  A regression technique where the relationship between independent (x) and dependent (y) variables is modeled as an nth‑degree polynomial.  
 - **Goal** → Capture non‑linear patterns in data.  
@@ -864,7 +867,7 @@ plt.show()
 
 
 
-# DAY - 12
+# DAY - 13
 
 ### Ridge & Lasso Regression 
 
